@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
       totalWeeks: remainingWeeks,
     };
   }
-  
-  function countDownInit() {
+  // Countdown Initialization
+  (function () {
     const countdownContainer = document.querySelector('.countdown');
     const weekContainer = countdownContainer.querySelector('.weeks');
     const dayContainer = countdownContainer.querySelector('.days');
@@ -47,7 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountDown();
     
     const interval = setInterval(updateCountDown, 1000);
-  }
-  
-  countDownInit();
+  })();
 });
