@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Countdown</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const endDate = new Date('2019-10-26T18:00:00');
+            const actualDate = new Date();
+            const datesDifference = endDate - actualDate;
+
+            let remainingSeconds = Math.floor((datesDifference / 1000) % 60);
+            let remainingMinutes = Math.floor((datesDifference / 1000 / 60) % 60);
+            let remainingHours = Math.floor((datesDifference / (1000 * 60 * 60)) % 24);
+            let remainingDays = Math.floor(datesDifference / (1000 * 60 * 60 * 24));
+            
+            console.log(`Days ${remainingDays} - Hours ${remainingHours} - Minutes ${remainingMinutes} - Seconds ${remainingSeconds}`);
+
+        });
+    </script>
 </head>
 <body>
-    <h1>Countdown</h1>
+    <h1>Wedding Countdown</h1>
     <div id="clock"></div>    
 </body>
 </html>
