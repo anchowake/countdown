@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const goalDate = '2019-10-26T18:00:00';
-  
-  function calculateRemainingTime(date) {
-    const endDate = new Date(date);
+  function calculateRemainingTime() {
+    const endDate = new Date('2019-10-26T18:00:00');
     const actualDate = new Date();
     const datesDifference = endDate - actualDate;
     const remainingSeconds = Math.floor((datesDifference / 1000) % 60);
@@ -20,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       totalWeeks: remainingWeeks,
     };
   }
+  
   // Countdown Initialization
   (function () {
     const countdownContainer = document.querySelector('.countdown');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const seconContainer = countdownContainer.querySelector('.seconds');
     
     function updateCountDown() {
-      const remainingTime = calculateRemainingTime(goalDate);
+      const remainingTime = calculateRemainingTime();
       
       weekContainer.innerText = (`0${remainingTime.totalWeeks}`).slice(-2); 
       dayContainer.innerText = remainingTime.totalDays;
