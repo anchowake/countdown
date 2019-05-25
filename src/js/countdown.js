@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const remainingMinutes = Math.floor((datesDifference / 1000 / 60) % 60);
     const remainingHours = Math.floor((datesDifference / (1000 * 60 * 60)) % 24);
     const remainingDays = Math.floor(datesDifference / (1000 * 60 * 60 * 24));
-    const remainingWeeks = Math.floor(datesDifference / (1000 * 60 * 60 * 24 * 7));
     
     return {
       totalTime: datesDifference,
@@ -15,14 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
       totalMinutes: remainingMinutes,
       totalHours: remainingHours,
       totalDays: remainingDays,
-      totalWeeks: remainingWeeks,
     };
   }
   
   // Countdown Initialization
   (function () {
     const countdownContainer = document.querySelector('.countdown');
-    const weekContainer = countdownContainer.querySelector('.weeks');
     const dayContainer = countdownContainer.querySelector('.days');
     const hourContainer = countdownContainer.querySelector('.hours');
     const minuteContainer = countdownContainer.querySelector('.minutes');
@@ -31,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCountDown() {
       const remainingTime = calculateRemainingTime();
       
-      weekContainer.innerText = (`0${remainingTime.totalWeeks}`).slice(-2); 
       dayContainer.innerText = remainingTime.totalDays;
       hourContainer.innerText = (`0${remainingTime.totalHours}`).slice(-2);
       minuteContainer.innerText = (`0${remainingTime.totalMinutes}`).slice(-2);
